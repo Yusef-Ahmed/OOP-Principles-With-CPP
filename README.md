@@ -1,4 +1,4 @@
-# OOP Principles With CPP
+# OOP Principles With JS
 
 Object-Oriented Programming (OOP) principles are the foundational ideas behind organizing software design around objects rather than functions or logic. 
 
@@ -8,38 +8,56 @@ There are four main OOP principles, often referred to as the pillars of OOP
 
 ### Description
 
-Encapsulation means hiding the internal state and requiring all interaction to be performed through an object’s methods.
+Encapsulation means hiding internal data and only exposing what's necessary.
 
 
-#### Code
+### Code
 
-```cpp
-#include <iostream>
-using namespace std;
-
+```js
 class BankAccount {
-private:
-    double balance;  // private data
+  #balance; // private field
 
-public:
-    BankAccount(double initial) {
-        balance = initial;
-    }
+  constructor(initialBalance) {
+    this.#balance = initialBalance;
+  }
 
-    void deposit(double amount) {
-        balance += amount;
-    }
+  deposit(amount) {
+    this.#balance += amount;
+  }
 
-    double getBalance() {
-        return balance;
-    }
-};
-
-int main() {
-    BankAccount acc(1000);
-    acc.deposit(500);
-    cout << acc.getBalance();  // Output: 1500
+  getBalance() {
+    return this.#balance;
+  }
 }
+
+const acc = new BankAccount(1000);
+acc.deposit(500);
+console.log(acc.getBalance()); // 1500
+// console.log(acc.#balance); // Error: private field
 ```
 
-Without it, I can do something like `acc.balance = 999` or corrupt the data
+## 2. Abstraction
+
+### Description
+
+Abstraction means hiding complex logic and only showing what’s important.
+
+### Code
+
+```js
+class Car {
+  start() {
+    this.#igniteEngine();
+    console.log("Car is ready to go!");
+  }
+
+  #igniteEngine() {
+    console.log("Engine ignited.");
+  }
+}
+
+const myCar = new Car();
+myCar.start(); // "Engine ignited." + "Car is ready to go!"
+// myCar.#igniteEngine(); // Error: private method
+```
+
