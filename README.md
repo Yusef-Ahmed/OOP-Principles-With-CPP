@@ -61,3 +61,25 @@ myCar.start(); // "Engine ignited." + "Car is ready to go!"
 // myCar.#igniteEngine(); // Error: private method
 ```
 
+## 3. Inheritance
+
+### Description
+
+Inheritance lets you create a child class that inherits properties/methods from a parent class.
+
+```js
+class Animal {
+  speak() {
+    console.log("Animal makes a sound");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log("Dog barks");
+  }
+}
+
+const dog = new Dog();
+dog.speak(); // "Dog barks"
+```
