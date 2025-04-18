@@ -83,3 +83,32 @@ class Dog extends Animal {
 const dog = new Dog();
 dog.speak(); // "Dog barks"
 ```
+
+## 4. Polymorphism
+
+### Description
+
+Polymorphism lets different classes use the same method name, but with different behaviors.
+
+### Code
+
+```js
+class Bird {
+  makeSound() {
+    console.log("Bird chirps");
+  }
+}
+
+class Cat {
+  makeSound() {
+    console.log("Cat meows");
+  }
+}
+
+function animalSound(animal) {
+  animal.makeSound(); // Different output depending on object
+}
+
+animalSound(new Bird()); // Bird chirps
+animalSound(new Cat());  // Cat meows
+```
